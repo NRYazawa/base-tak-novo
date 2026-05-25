@@ -4684,23 +4684,38 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
-		/* ==========================================
-		THE AKAI KITSUNE - RED, BLACK & WHITE THEME
+	/* ==========================================
+		THE AKAI KITSUNE - PALETA OFICIAL AGRESSIVA
 		========================================== */
 
-		/* 1. FUNDO (Preto Secundário) e TEXTO (Branco Terciário) */
-		body, #wrapper, #main, #footer, #copyright {
-			background-color: #0a0a0a !important; /* Preto profundo */
-			color: #ffffff !important; /* Branco */
-		}
-
-		p, span, label, .date, .icon:before, ul li {
+		/* 1. BLINDAGEM DO FUNDO PRETO (Resolve o bug do Zoom) */
+		html, body, #wrapper, #wrapper > .bg, #wrapper.fade-in:before, #copyright {
+			background-color: #0a0a0a !important;
+			background-image: none; /* Permite que o bg.jpg do intro funcione sem vazar nas laterais */
 			color: #ffffff !important;
 		}
 
-		/* 2. TÍTULOS E LINKS (Vermelho Primário) */
-		h1, h2, h3, h4, h5, h6, a {
-			color: #d32f2f !important; /* Vermelho */
+		/* Fundo do container principal e dos blocos secundários */
+		#main {
+			background-color: #0f0f10 !important;
+			border-top: none !important;
+		}
+		#main > * {
+			border-top-color: #222224 !important;
+		}
+		.posts > article {
+			background-color: #141416 !important;
+			border-color: #222224 !important;
+		}
+
+		/* 2. TEXTOS GERAIS EM BRANCO */
+		p, span, label, .date, .icon:before, ul li, text, textarea {
+			color: #ffffff !important;
+		}
+
+		/* 3. TÍTULOS E LINKS EM VERMELHO CRU */
+		h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, a {
+			color: #d32f2f !important;
 		}
 		a {
 			border-bottom-color: #d32f2f !important;
@@ -4710,59 +4725,52 @@ input, select, textarea {
 			border-bottom-color: transparent !important;
 		}
 
-		/* 3. BLOCOS DE MANCHETE (Fundo Vermelho com Texto Branco) */
-		header.major, .post header {
-			background-color: #d32f2f !important; /* Vermelho Primário */
-			padding: 2em !important;
-			border-radius: 5px;
-			margin-bottom: 2em !important;
+		/* 4. BLOCOS DE MANCHETE (Fundo Vermelho com Letras Brancas) */
+		header.major, 
+		.post header.major, 
+		#main > .post.featured header.major,
+		.posts article header {
+			background: #d32f2f !important;
+			background-image: none !important;
+			padding: 3em !important;
+			border-radius: 6px;
+			margin-bottom: 3em !important;
+			text-align: center;
 		}
 
-		/* Força os textos DENTRO da manchete vermelha a serem brancos para leitura */
-		header.major h1, header.major h2, header.major h3, 
-		header.major p, header.major span.date,
-		header.major h1 a, header.major h2 a, header.major h3 a,
-		.post header h1, .post header h2, .post header h3,
-		.post header p, .post header span.date,
-		.post header h1 a, .post header h2 a, .post header h3 a {
-			color: #ffffff !important; 
+		/* Força tudo que estiver dentro das manchetes vermelhas a ficar branco */
+		header.major *, 
+		.post header.major *, 
+		#main > .post.featured header.major *,
+		.posts article header * {
+			color: #ffffff !important;
 			border-bottom-color: transparent !important;
 		}
 
-		/* 4. FUNDO DOS ARTIGOS (Preto com separadores vermelhos) */
-		#main > .post, #main > .posts > article {
-			background-color: #111111 !important; /* Cinza quase preto para não colar no fundo */
-			border-top: none !important;
-		}
-		.row.aln-middle {
-			border-bottom: 2px solid #d32f2f !important; /* Linha divisória vermelha */
-		}
-
-		/* 5. MENU DE NAVEGAÇÃO (Fundo Vermelho) */
+		/* 5. MENU DE NAVEGAÇÃO VERMELHO */
 		#nav {
 			background-color: #d32f2f !important;
 		}
 		#nav ul.links li {
-			border-color: #a11414 !important; /* Vermelho mais escuro para a divisão */
+			border-color: #9e1c1c !important;
 		}
 		#nav ul.links li a {
 			color: #ffffff !important;
 		}
 		#nav ul.links li a:hover {
-			color: #111111 !important; /* Fica preto ao passar o rato */
+			color: #0a0a0a !important;
+			background-color: rgba(0, 0, 0, 0.1) !important;
 		}
 		#nav ul.links li.active {
-			background-color: #111111 !important; /* Aba ativa fica preta */
+			background-color: #0a0a0a !important;
 		}
 		#nav ul.links li.active a {
-			color: #d32f2f !important; /* Texto da aba ativa fica vermelho */
+			color: #d32f2f !important;
 		}
-
-		/* Ícones do Nav */
 		#nav ul.icons li a.icon:before { color: #ffffff !important; }
-		#nav ul.icons li a.icon:hover:before { color: #111111 !important; }
+		#nav ul.icons li a.icon:hover:before { color: #0a0a0a !important; }
 
-		/* 6. BOTÕES (Borda Vermelha, Hover Vermelho Preenchido) */
+		/* 6. BOTÕES COMPACTOS E CONFIGURAÇÕES DE INTERAÇÃO */
 		input[type="submit"], input[type="reset"], input[type="button"], button, .button {
 			background-color: transparent !important;
 			box-shadow: inset 0 0 0 2px #d32f2f !important;
@@ -4773,20 +4781,9 @@ input, select, textarea {
 			color: #ffffff !important;
 		}
 
-		/* 7. LOGO E INTRO (Home) */
-		#header .logo {
-			border-color: transparent !important;
-			color: #ffffff !important;
-			background-color: #d32f2f !important; /* Caixa do Logo Vermelha */
+		/* Limpeza de sombras e pseudo-elementos antigos */
+		header.major .date:before, header.major .date:after {
+			border-top-color: rgba(255, 255, 255, 0.3) !important;
 		}
-		#header .logo:hover {
-			background-color: #111111 !important;
-			color: #d32f2f !important;
-		}
-		#intro {
-			background-color: rgba(10, 10, 10, 0.8) !important; 
-		}
-		#intro h1 { color: #d32f2f !important; }
-		#intro p { color: #ffffff !important; }
 
 	}
