@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "tipo": "artigo",
+    "data": "20 de Maio de 2026",
+    "titulo": "A Estética do Grotesco: Armando o 'Feio' no Terror",
+    "subtitulo": "Um ensaio analítico desconstruindo o horror psicológico.",
+    "descricao": "Explorando a linha tênue entre o medo e a repulsa. Este ensaio analisa como títulos clássicos e modernos utilizam o design de cenários e a desfiguração anatômica para transformar o 'feio' numa ferramenta narrativa crucial.",
+    "imagem": "images/pic01.jpg",
+    "link": "essay-grotesque.html"
+  },
+  {
+    "id": 2,
+    "tipo": "analise",
+    "data": "15 de Maio de 2026",
+    "titulo": "Análise: O Legado de Silent Hill",
+    "descricao": "Uma imersão técnica sobre como o uso severo de névoa, restrição de câmera e design de som industrial estabeleceu os pilares do terror psicológico tridimensional.",
+    "imagem": "images/pic02.jpg",
+    "link": "review-exemplo1.html"
+  },
+  {
+    "id": 3,
+    "tipo": "analise",
+    "data": "02 de Maio de 2026",
+    "titulo": "Análise: A Atmosfera de Resident Evil 7",
+    "descricao": "Analisamos a transição para a primeira pessoa, o fotorrealismo da RE Engine e o retorno cirúrgico à claustrofobia do level design de sobrevivência clássico.",
+    "imagem": "images/pic03.jpg",
+    "link": "review-exemplo2.html"
+  }
+]

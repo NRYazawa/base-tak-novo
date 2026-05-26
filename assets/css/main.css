@@ -4671,11 +4671,9 @@ input, select, textarea {
 		}
 
 	@media screen and (max-width: 980px) {
-
 		body.is-navPanel-visible #wrapper {
 			opacity: 0.5;
 		}
-
 		body.is-navPanel-visible #navPanel {
 			-moz-transform: translateX(0);
 			-webkit-transform: translateX(0);
@@ -4684,18 +4682,20 @@ input, select, textarea {
 			box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
 			visibility: visible;
 		}
-	/* ==========================================
+	} /* <--- FECHA AS REGRAS DE MOBILE AQUI! */
+
+
+		/* ==========================================
 		THE AKAI KITSUNE - PALETA OFICIAL AGRESSIVA
 		========================================== */
 
-		/* 1. BLINDAGEM DO FUNDO PRETO (Resolve o bug do Zoom) */
+		/* 1. BLINDAGEM DO FUNDO PRETO (Para todas as resoluções) */
 		html, body, #wrapper, #wrapper > .bg, #wrapper.fade-in:before, #copyright {
 			background-color: #0a0a0a !important;
-			background-image: none; /* Permite que o bg.jpg do intro funcione sem vazar nas laterais */
+			background-image: none !important; 
 			color: #ffffff !important;
 		}
 
-		/* Fundo do container principal e dos blocos secundários */
 		#main {
 			background-color: #0f0f10 !important;
 			border-top: none !important;
@@ -4738,7 +4738,6 @@ input, select, textarea {
 			text-align: center;
 		}
 
-		/* Força tudo que estiver dentro das manchetes vermelhas a ficar branco */
 		header.major *, 
 		.post header.major *, 
 		#main > .post.featured header.major *,
@@ -4770,6 +4769,16 @@ input, select, textarea {
 		#nav ul.icons li a.icon:before { color: #ffffff !important; }
 		#nav ul.icons li a.icon:hover:before { color: #0a0a0a !important; }
 
+		/* DESATIVA A REANIMAÇÃO DO MENU E CABEÇALHO ENTRE PÁGINAS */
+		#nav, #header, #header .logo {
+			-moz-transition: none !important;
+			-webkit-transition: none !important;
+			-ms-transition: none !important;
+			transition: none !important;
+			opacity: 1 !important;
+			transform: none !important;
+		}
+
 		/* 6. BOTÕES COMPACTOS E CONFIGURAÇÕES DE INTERAÇÃO */
 		input[type="submit"], input[type="reset"], input[type="button"], button, .button {
 			background-color: transparent !important;
@@ -4784,6 +4793,23 @@ input, select, textarea {
 		/* Limpeza de sombras e pseudo-elementos antigos */
 		header.major .date:before, header.major .date:after {
 			border-top-color: rgba(255, 255, 255, 0.3) !important;
+		} /* <--- ESSA CHAVE ESTAVA FALTANDO PARA FECHAR A REGRA ACIMA! */
+
+		/* ==========================================
+		CORREÇÃO DO LOGO THE AKAI KITSUNE
+		========================================== */
+		/* ==========================================
+   		CORREÇÃO DO LOGO THE AKAI KITSUNE (MINIMALISTA)
+		========================================== */
+		#header .logo {
+			background-color: transparent !important; /* Fundo transparente */
+			color: #d32f2f !important; /* Letras vermelhas */
+			border: 3px solid #d32f2f !important; /* Apenas borda vermelha */
+			border-radius: 0 !important;
 		}
 
-	}
+		#header .logo:hover {
+			background-color: #d32f2f !important; /* Fundo vermelho apenas ao passar o mouse */
+			color: #ffffff !important; /* Letras ficam brancas ao passar o mouse */
+			border-color: #d32f2f !important;
+		}
