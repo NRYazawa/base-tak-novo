@@ -4696,6 +4696,13 @@ input, select, textarea {
 			color: #ffffff !important;
 		}
 
+		/* 2. REMOVENDO A MOLDURA LATERAL (100% DE LARGURA) */
+		#nav, #main, #footer, #copyright {
+			max-width: 90% !important;
+			width: 90% !important;
+			margin: 300 !important;
+		}
+
 		#main {
 			background-color: #0f0f10 !important;
 			border-top: none !important;
@@ -4708,34 +4715,35 @@ input, select, textarea {
 			border-color: #222224 !important;
 		}
 
-		/* 2. TEXTOS GERAIS EM BRANCO */
+				/* 3. TEXTOS GERAIS EM BRANCO */
 		p, span, label, .date, .icon:before, ul li, text, textarea {
-			color: #ffffff !important;
+			color: #e0e0e0 !important; /* Branco ligeiramente suavizado para não cansar a vista */
 		}
 
-		/* 3. TÍTULOS E LINKS EM VERMELHO CRU */
+		/* 4. TÍTULOS E LINKS (Vermelho mais vivo para garantir leitura no preto) */
 		h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, a {
-			color: #d32f2f !important;
+			color: #cc0000 !important; 
 		}
 		a {
-			border-bottom-color: #d32f2f !important;
+			border-bottom-color: #7f0000 !important; /* Sublinhado na cor da logo */
 		}
 		a:hover {
 			color: #ffffff !important;
 			border-bottom-color: transparent !important;
 		}
 
-		/* 4. BLOCOS DE MANCHETE (Fundo Vermelho com Letras Brancas) */
+		/* 5. BLOCOS DE MANCHETE (Fundo na Cor Oficial da Logo) */
 		header.major, 
 		.post header.major, 
 		#main > .post.featured header.major,
 		.posts article header {
-			background: #d32f2f !important;
+			background: #7f0000 !important; /* Vermelho escuro Akai */
 			background-image: none !important;
 			padding: 3em !important;
 			border-radius: 6px;
 			margin-bottom: 3em !important;
 			text-align: center;
+			border-bottom: 4px solid #4a0000 !important; /* Sombra embaixo da manchete */
 		}
 
 		header.major *, 
@@ -4746,31 +4754,32 @@ input, select, textarea {
 			border-bottom-color: transparent !important;
 		}
 
-		/* 5. MENU DE NAVEGAÇÃO VERMELHO */
+		/* 6. MENU DE NAVEGAÇÃO (Fundo na Cor Oficial da Logo) */
 		#nav {
-			background-color: #d32f2f !important;
+			background-color: #7f0000 !important;
+			border-bottom: 2px solid #4a0000 !important; /* Linha divisória com o site */
 		}
 		#nav ul.links li {
-			border-color: #9e1c1c !important;
+			border-color: #5c0000 !important; /* Divisórias das abas mais escuras */
 		}
 		#nav ul.links li a {
 			color: #ffffff !important;
 		}
 		#nav ul.links li a:hover {
-			color: #0a0a0a !important;
-			background-color: rgba(0, 0, 0, 0.1) !important;
+			color: #ffffff !important;
+			background-color: rgba(0, 0, 0, 0.2) !important; /* Escurece um pouco ao passar o mouse */
 		}
 		#nav ul.links li.active {
-			background-color: #0a0a0a !important;
+			background-color: #0a0a0a !important; /* Aba ativa afunda para o preto do site */
 		}
 		#nav ul.links li.active a {
-			color: #d32f2f !important;
+			color: #cc0000 !important; /* Letra da aba ativa em vermelho vivo */
 		}
 		#nav ul.icons li a.icon:before { color: #ffffff !important; }
 		#nav ul.icons li a.icon:hover:before { color: #0a0a0a !important; }
 
-		/* DESATIVA A REANIMAÇÃO DO MENU E CABEÇALHO ENTRE PÁGINAS */
-		#nav, #header, #header .logo {
+		/* DESATIVA A REANIMAÇÃO APENAS DO MENU (Preserva o efeito de scroll da Home) */
+		#nav {
 			-moz-transition: none !important;
 			-webkit-transition: none !important;
 			-ms-transition: none !important;
@@ -4779,37 +4788,223 @@ input, select, textarea {
 			transform: none !important;
 		}
 
-		/* 6. BOTÕES COMPACTOS E CONFIGURAÇÕES DE INTERAÇÃO */
+		/* 7. BOTÕES (Borda na cor da logo, texto vivo) */
 		input[type="submit"], input[type="reset"], input[type="button"], button, .button {
 			background-color: transparent !important;
-			box-shadow: inset 0 0 0 2px #d32f2f !important;
-			color: #d32f2f !important;
+			box-shadow: inset 0 0 0 2px #7f0000 !important;
+			color: #cc0000 !important;
 		}
 		input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, button:hover, .button:hover {
-			background-color: #d32f2f !important;
+			background-color: #7f0000 !important;
 			color: #ffffff !important;
 		}
 
 		/* Limpeza de sombras e pseudo-elementos antigos */
 		header.major .date:before, header.major .date:after {
-			border-top-color: rgba(255, 255, 255, 0.3) !important;
-		} /* <--- ESSA CHAVE ESTAVA FALTANDO PARA FECHAR A REGRA ACIMA! */
-
-		/* ==========================================
-		CORREÇÃO DO LOGO THE AKAI KITSUNE
-		========================================== */
-		/* ==========================================
-   		CORREÇÃO DO LOGO THE AKAI KITSUNE (MINIMALISTA)
-		========================================== */
-		#header .logo {
-			background-color: transparent !important; /* Fundo transparente */
-			color: #d32f2f !important; /* Letras vermelhas */
-			border: 3px solid #d32f2f !important; /* Apenas borda vermelha */
-			border-radius: 0 !important;
+			border-top-color: rgba(255, 255, 255, 0.2) !important;
 		}
 
-		#header .logo:hover {
-			background-color: #d32f2f !important; /* Fundo vermelho apenas ao passar o mouse */
-			color: #ffffff !important; /* Letras ficam brancas ao passar o mouse */
-			border-color: #d32f2f !important;
+		/* 8. LOGO EM IMAGEM (THE AKAI KITSUNE) */
+		#header .logo {
+			border: none !important; /* Remove o retângulo de borda */
+			padding: 0 !important;
+			background: transparent !important;
+		}
+
+		#header .logo img {
+			height: 175px; /* Define a altura da logo. Pode aumentar ou diminuir a gosto! */
+			width: auto;
+			display: block;
+			transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+		}
+
+		#header .logo:hover img {
+			transform: scale(1.05); /* Pequeno efeito de zoom ao passar o mouse */
+			filter: drop-shadow(0 0 10px rgba(127, 0, 0, 0.6)); /* Brilho na cor oficial da sua marca */
+		}
+		/* ==========================================
+		CAIXA DE VEREDITO (AKAI KITSUNE SCORE)
+		========================================== */
+		.fox-score-box {
+			background-color: #0a0a0a;
+			border: 3px solid #7f0000; /* Borda na cor oficial da marca */
+			border-radius: 8px;
+			padding: 2.5em;
+			margin: 4em auto 2em auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 3em;
+			max-width: 800px;
+			box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+		}
+
+		/* O ícone da raposa */
+		.fox-score-icon {
+			flex-shrink: 0;
+		}
+		.fox-score-icon img {
+			width: 100px; /* Tamanho do seu ícone de raposa */
+			height: auto;
+			display: block;
+			filter: drop-shadow(0 0 10px rgba(127, 0, 0, 0.5)); /* Brilho vermelho ao redor da logo */
+		}
+
+		/* Os textos da nota */
+		.fox-score-details {
+			text-align: left;
+			border-left: 2px solid #4a0000;
+			padding-left: 3em;
+		}
+		.fox-score-details h3 {
+			color: #cc0000 !important;
+			font-size: 3.5rem;
+			margin: 0;
+			line-height: 1;
+		}
+		.fox-score-details p {
+			color: #e0e0e0;
+			font-size: 1.3rem;
+			font-weight: 900;
+			margin: 0.5em 0 0 0;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+		}
+
+		/* Responsividade para celular */
+		@media screen and (max-width: 736px) {
+			.fox-score-box {
+				flex-direction: column;
+				text-align: center;
+				gap: 1.5em;
+				padding: 2em;
+			}
+			.fox-score-details {
+				border-left: none;
+				border-top: 2px solid #4a0000;
+				padding-left: 0;
+				padding-top: 1.5em;
+				text-align: center;
+			}
+			/* ==========================================
+			CORREÇÃO DEFINITIVA DO TEXTO NEGRITO
+			========================================== */
+			body strong, body b, 
+			#main strong, #main b, 
+			#wrapper strong, #wrapper b,
+			.post strong, .post b {
+				color: #ffffff !important; /* Mude para #cc0000 se quiser que fique vermelho vivo! */
+				font-weight: 900 !important;
+			}
+			/* ==========================================
+			AJUSTE DE ESPAÇAMENTO VERTICAL DO HEADER
+			========================================== */
+			#header {
+				height: 20rem !important;         /* Reduz a altura total reservada para o topo (o padrão era 20rem) */
+				padding-bottom: 20rem !important; /* Reduz o espaço entre a logo e o menu de navegação (o padrão era 8rem) */
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: center !important; /* Garante que a imagem fica perfeitamente centralizada verticalmente */
+			}
+			/* ==========================================
+			CORREÇÃO DA ANIMAÇÃO DE SCROLL (HOME)
+			========================================== */
+			/* Suaviza a entrada e saída da logo pequena */
+			#header .logo {
+				transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s !important;
+			}
+
+			/* Quando a tela gigante inicial estiver visível, a logo pequena some */
+			#intro:not(.hidden) + #header .logo {
+				opacity: 0 !important;
+				visibility: hidden !important;
+				transform: translateY(2rem) !important;
+			}
+
+			/* Quando você descer o scroll e a tela gigante sumir, a logo pequena aparece */
+			#intro.hidden + #header .logo {
+				opacity: 1 !important;
+				visibility: visible !important;
+				transform: translateY(0) !important;
+			}
+			/* ==========================================
+			IMAGENS DENTRO DOS TEXTOS (COM LEGENDA)
+			========================================== */
+			.imagem-materia {
+				display: block;
+				margin: 3em auto; /* Centraliza e dá respiro no texto */
+				max-width: 80%; /* Garante que a imagem não fique nem gigante, nem pequena */
+				text-align: center;
+			}
+
+			.imagem-materia img {
+				width: 100%;
+				height: auto;
+				border-radius: 6px; /* Bordas levemente arredondadas */
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra para dar profundidade no fundo preto */
+			}
+
+			.imagem-materia figcaption {
+				margin-top: 1em;
+				font-size: 0.9rem;
+				color: #888888; /* Cinza para não roubar a atenção do texto principal */
+				font-style: italic;
+				letter-spacing: 0.05em;
+			}
+
+			/* No telemóvel a imagem ocupa 100% do ecrã para melhor leitura */
+			@media screen and (max-width: 736px) {
+				.imagem-materia {
+					max-width: 100%;
+				}
+			}
+			/* ==========================================
+			CORREÇÃO DO MENU MOBILE E ÍCONES SOCIAIS
+			========================================== */
+
+			/* 1. O fundo da gaveta do menu no telemóvel */
+			#navPanel {
+				background-color: #0a0a0a !important; /* Preto profundo, padrão da Akai Kitsune */
+			}
+
+			/* 2. Os links de texto dentro do menu mobile */
+			#navPanel a {
+				color: #ffffff !important; /* Texto em branco puro */
+			}
+
+			#navPanel a:hover {
+				color: #cc0000 !important; /* Texto fica vermelho ao toque */
+			}
+
+			/* 3. Ícones de redes sociais (Geral e Mobile) */
+			ul.icons li a.icon {
+				color: #ffffff !important; /* Tira o cinzento e força o branco puro */
+				opacity: 1 !important; /* Garante que não fiquem desbotados */
+				transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+			}
+
+			/* 4. Efeito de passar o rato/dedo nos ícones sociais */
+			ul.icons li a.icon:hover {
+				color: #cc0000 !important; /* O vermelho vivo da marca */
+				transform: scale(1.1); /* Dá um leve zoom elegante */
+			}
+			/* ==========================================
+			CORREÇÃO DO MENU EM MODO TABLET (ZOOM 170%)
+			========================================== */
+			#nav, 
+			#nav > ul, 
+			#navPanelToggle, 
+			#titleBar {
+				background-color: #0a0a0a !important;
+			}
+
+			/* Garante que o texto dentro deste menu de tablet também fique branco */
+			@media screen and (max-width: 980px) {
+				#nav a {
+					color: #ffffff !important;
+				}
+				#nav a:hover {
+					color: #cc0000 !important;
+				}
+			}
 		}

@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Procura o ficheiro JSON
     fetch('conteudo.json')
         .then(response => response.json())
         .then(data => {
+            // 1. MÁGICA DA ORDENAÇÃO: Força a ordem do mais recente para o mais antigo usando a data_iso
+            data.sort((a, b) => new Date(b.data_iso) - new Date(a.data_iso));
+
             renderizarHome(data);
-            renderizarListas(data);
+            renderizarListasPaginadas(data);
         })
         .catch(error => console.error('Erro ao carregar os conteúdos:', error));
 });
@@ -13,9 +15,8 @@ function renderizarHome(conteudos) {
     const containerDestaque = document.getElementById('artigo-destaque');
     const containerGrid = document.getElementById('analises-grid');
 
-    if (!containerDestaque || !containerGrid) return; // Só corre se estiver na Home
+    if (!containerDestaque || !containerGrid) return; 
 
-    // 1. O primeiro item do JSON (mais recente de todos) vai para o Destaque Principal
     const maisRecente = conteudos[0];
     if (maisRecente) {
         containerDestaque.innerHTML = `
@@ -31,7 +32,6 @@ function renderizarHome(conteudos) {
         `;
     }
 
-    // 2. Filtra as 2 análises mais recentes e desenha a grelha
     const analises = conteudos.filter(item => item.tipo === 'analise').slice(0, 2);
     
     containerGrid.innerHTML = '';
@@ -52,47 +52,57 @@ function renderizarHome(conteudos) {
     });
 }
 
-function renderizarListas(conteudos) {
+// 2. MÁGICA DA PAGINAÇÃO (CARREGAR MAIS)
+function renderizarListasPaginadas(conteudos) {
     const listaArtigos = document.getElementById('lista-artigos');
     const listaAnalises = document.getElementById('lista-analises');
+    
+    // Configuração de quantos itens aparecem por vez
+    const itensPorPagina = 5; 
 
-    // Aba de Artigos usa o layout Compacto (Horizontal, mais acadêmico)
     if (listaArtigos) {
         const artigos = conteudos.filter(item => item.tipo === 'artigo');
-        listaArtigos.innerHTML = gerarHTMLCompacto(artigos, "Ler Artigo");
+        configurarPaginacao(artigos, listaArtigos, gerarHTMLCompacto, "Ler Artigo", itensPorPagina);
     }
 
-    // Aba de Análises usa o layout Grid (Cards lado a lado, mais visual)
     if (listaAnalises) {
         const analises = conteudos.filter(item => item.tipo === 'analise');
-        listaAnalises.innerHTML = gerarHTMLGrid(analises, "Ler Análise");
+        configurarPaginacao(analises, listaAnalises, gerarHTMLGrid, "Ler Análise", itensPorPagina);
     }
 }
 
-// ... (Pode manter a função gerarHTMLCompacto intacta aqui) ...
+function configurarPaginacao(itens, container, funcaoGeradora, textoBotao, limite) {
+    let paginaAtual = 1;
 
-// NOVA FUNÇÃO: Gera os Cards estilo Vitrine para as Análises
-function gerarHTMLGrid(itens, textoBotao) {
-    let html = '';
-    itens.forEach(item => {
-        html += `
-        <article>
-            <header>
-                <span class="date">${item.data}</span>
-                <h2><a href="${item.link}">${item.titulo}</a></h2>
-            </header>
-            <a href="${item.link}" class="image fit"><img src="${item.imagem}" alt="${item.titulo}" /></a>
-            <p>${item.descricao}</p>
-            <ul class="actions special">
-                <li><a href="${item.link}" class="button">${textoBotao}</a></li>
-            </ul>
-        </article>`;
-    });
-    return html;
+    // Função interna que desenha a quantidade certa na tela
+    function atualizarTela() {
+        const totalVisivel = paginaAtual * limite;
+        const itensParaMostrar = itens.slice(0, totalVisivel);
+        
+        container.innerHTML = funcaoGeradora(itensParaMostrar, textoBotao);
+
+        // Se ainda houver itens escondidos, cria o botão "Carregar Mais"
+        if (totalVisivel < itens.length) {
+            const btnContainer = document.createElement('div');
+            btnContainer.style.textAlign = 'center';
+            btnContainer.style.marginTop = '3em';
+            btnContainer.style.width = '100%';
+            
+            btnContainer.innerHTML = `<button class="button primary">Carregar Mais</button>`;
+            
+            btnContainer.querySelector('button').addEventListener('click', () => {
+                paginaAtual++;
+                atualizarTela();
+            });
+            
+            container.appendChild(btnContainer);
+        }
+    }
+
+    // Inicia a tela na primeira página
+    atualizarTela();
 }
 
-// Função auxiliar que cria as linhas bonitas e alinhadas (1/3 imagem, 2/3 texto)
-// FUNÇÃO ATUALIZADA: Imagem preenche toda a altura do bloco de texto
 function gerarHTMLCompacto(itens, textoBotao) {
     let html = '';
     itens.forEach(item => {
@@ -114,6 +124,25 @@ function gerarHTMLCompacto(itens, textoBotao) {
                 </ul>
             </div>
         </div>`;
+    });
+    return html;
+}
+
+function gerarHTMLGrid(itens, textoBotao) {
+    let html = '';
+    itens.forEach(item => {
+        html += `
+        <article>
+            <header>
+                <span class="date">${item.data}</span>
+                <h2><a href="${item.link}">${item.titulo}</a></h2>
+            </header>
+            <a href="${item.link}" class="image fit"><img src="${item.imagem}" alt="${item.titulo}" /></a>
+            <p>${item.descricao}</p>
+            <ul class="actions special">
+                <li><a href="${item.link}" class="button">${textoBotao}</a></li>
+            </ul>
+        </article>`;
     });
     return html;
 }

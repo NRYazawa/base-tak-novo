@@ -3,28 +3,40 @@
     "id": 1,
     "tipo": "artigo",
     "data": "20 de Maio de 2026",
+    "data_iso": "2026-05-20", 
     "titulo": "A Estética do Grotesco: Armando o 'Feio' no Terror",
-    "subtitulo": "Um ensaio analítico desconstruindo o horror psicológico.",
-    "descricao": "Explorando a linha tênue entre o medo e a repulsa. Este ensaio analisa como títulos clássicos e modernos utilizam o design de cenários e a desfiguração anatômica para transformar o 'feio' numa ferramenta narrativa crucial.",
+    "descricao": "Explorando a linha tênue...",
     "imagem": "images/pic01.jpg",
-    "link": "essay-grotesque.html"
+    "link": "articles/article-template.html"
   },
   {
     "id": 2,
     "tipo": "analise",
     "data": "15 de Maio de 2026",
+    "data_iso": "2026-05-15",
     "titulo": "Análise: O Legado de Silent Hill",
-    "descricao": "Uma imersão técnica sobre como o uso severo de névoa, restrição de câmera e design de som industrial estabeleceu os pilares do terror psicológico tridimensional.",
+    "descricao": "Uma imersão técnica sobre...",
     "imagem": "images/pic02.jpg",
-    "link": "review-exemplo1.html"
+    "link": "reviews/review-template.html"
   },
   {
     "id": 3,
+    "tipo": "artigo",
+    "data": "01 de Agosto de 2015",
+    "data_iso": "2015-08-01",
+    "titulo": "Me  caguei da silva",
+    "descricao": "Explorando a linha tênue...",
+    "imagem": "images/pic01.jpg",
+    "link": "articles/article-template2.html"
+  },
+  {
+    "id": 4,
     "tipo": "analise",
-    "data": "02 de Maio de 2026",
-    "titulo": "Análise: A Atmosfera de Resident Evil 7",
-    "descricao": "Analisamos a transição para a primeira pessoa, o fotorrealismo da RE Engine e o retorno cirúrgico à claustrofobia do level design de sobrevivência clássico.",
-    "imagem": "images/pic03.jpg",
-    "link": "review-exemplo2.html"
+    "data": "15 de Maio de 2035",
+    "data_iso": "2035-05-15",
+    "titulo": "Comi o cu de quem tá lendo",
+    "descricao": "Uma imersão técnica sobre...",
+    "imagem": "images/pic02.jpg",
+    "link": "reviews/review-template2.html"
   }
 ]
